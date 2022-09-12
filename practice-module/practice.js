@@ -109,7 +109,7 @@ const numb = isNumber(2 , 3 );
 console.log(numb);
 
 /*
-practice-problem: 10
+practice-problem: 9
 চ্যালেঞ্জিং] array এর destructuring করবে আর সেটা করার জন্য তুমি এরে এর থার্ড পজিশন এর উপাদান কে destructuring করে 'three' নামক একটা ভেরিয়েবল এ রাখবে। 
 */
 const nayoks = ['sakib', 'riaj', 'ilias'];
