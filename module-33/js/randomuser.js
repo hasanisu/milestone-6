@@ -1,5 +1,5 @@
 const loadUser = () => {
-    fetch('https://randomuser.me/api/?results=15')
+    fetch('https://randomuser.me/api/?results=15') /* eitake bole query parameter */
     .then(res => res.json())
     .then(data => displayUser(data.results))
 }  
