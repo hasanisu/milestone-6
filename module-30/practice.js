@@ -20,7 +20,7 @@ console.log(threeLine);
 // practice: 1:3
 const defaultParameter = (mango, banana = 0) => mango + banana;
 const fruits = defaultParameter(10);
-console.log(fruits);
+// console.log(fruits);
 
 // practice problem-4
 
@@ -34,19 +34,24 @@ const findMax = (num1, num2) =>{
     return array
 }
 const findArray = findMax(array1, array2);
-console.log(findArray);
+// console.log(findArray);
 
 // practice problem-3
-function hasan (array){
-    for(let i = 0; i > array.length; i++){
-        const index = array[i];
-        console.log(index);
+// not completed yet 
+function isHasan(array){
+    let sum = 0;
+    let isArray =[];
+    for(let i = 0; i < array.length; i++){
+        const index = i;
+        const element = array[index];
+        const isSquare =  Math.pow(element, 2);
+        let sum = sum + isSquare;
+        const divided = sum / 2
+        console.log(divided);
     }
 
 }
 const aray = [20, 2, 4, 61];
-const array5 = hasan(aray);
-console.log(array5);
-
-
+isHasan(aray);
+// console.log(array5);
 
