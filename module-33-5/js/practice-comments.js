@@ -1,14 +1,17 @@
-const loadComments = () =>{
-    fetch('https://jsonplaceholder.typicode.com/comments')
+const loadComments = (search) =>{
+    const url = `https://jsonplaceholder.typicode.com/comments`;
+    fetch(url)
     .then(res => res.json())
     .then(data => displayComment(data))
 }
 
-const displayComment = comments =>{
-    // console.log(comments);
+const displayComment = comments=>{
+    // console.log(comments.length);
+    const hello = comments.length;
+    
     const commentArea = document.getElementById('display-container');
     comments.forEach(comment =>{
-        // console.log(comment);
+        if(comment.id <= 20){
         const createDiv = document.createElement('div');
         createDiv.classList.add('showoff');
         createDiv.innerHTML = `
@@ -20,7 +23,7 @@ const displayComment = comments =>{
         `
         commentArea.appendChild(createDiv);
         
-    })
+    }})
 }
 
 const loadData = (postId) =>{
@@ -33,6 +36,7 @@ const loadData = (postId) =>{
 
 const displayPost = comment =>{
         const postContainer = document.getElementById('post-container');
+        // postContainer.innerHTML = '';
         const postDiv = document.createElement('div');
         postDiv.classList.add('showoff');
         postDiv.innerHTML = `
