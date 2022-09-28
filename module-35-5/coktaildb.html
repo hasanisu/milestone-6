@@ -11,14 +11,39 @@
         <h1>Here is showing some drinks info just for coding</h1>
     </header>
     <main class="container text-center">
+      <section>
+        <div class="mb-3">
+          <input id="input-something" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Search your recommand drinks">
+          <button onclick="searchFeild()" class="btn btn-primary">Search</button>
+        </div>
+      </section>
         <section>
-            <h2>Showing some inforamtion with photo</h2>
-            
               <div id="load-area" class="row row-cols-1 row-cols-md-3 g-4">
                
               </div>
+
+              <!-- modal -->
+              <!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="coktailDetailsModel" tabindex="-1" aria-labelledby="coktailDetailsModelLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="coktailDetailsModelLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id="body-area" class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
                 
         </section>
+        
     </main>
 
 
