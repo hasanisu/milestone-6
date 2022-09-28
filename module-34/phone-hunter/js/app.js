@@ -34,7 +34,7 @@ const displayPhone = (phones, dataLimit) =>{
 
     // display all phones 
     phones.forEach( phone =>{
-        console.log(phone);
+        // console.log(phone);
         const phoneDiv = document.createElement('div');
         phoneDiv.classList.add('col');
         phoneDiv.innerHTML = `
@@ -44,7 +44,7 @@ const displayPhone = (phones, dataLimit) =>{
                 <div class="card-body">
                     <h5 class="card-title">${phone.phone_name}</h5>
                     <p class="card-text">This phone is realy awesome</p>
-                    <button onclick="loadPhoneDetails('${phone.slug}')" href="#" class="btn btn-primary">Show Details</button>
+                    <button onclick="loadPhoneDetails('${phone.slug}')" href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#phoneDetailModal">Show Details</button>
                 </div>
             </div>
                    
@@ -110,6 +110,29 @@ const loadPhoneDetails = async id =>{
     const url =`https://openapi.programming-hero.com/api/phone/${id}`;
     const res = await fetch(url)
     const data = await res.json()
-    console.log(data.data);
+    dispalyPhoneDetails(data.data);
 }
-// loadPhones();
+
+const dispalyPhoneDetails = phone =>{
+    console.log(phone);
+    const modalTitle = document.getElementById('phoneDetailModalLabel');
+    modalTitle.innerText = phone.name;
+    const phoneDetail = document.getElementById('phone-detail');
+    let text = "";
+    for (let i = 0; i < phone.mainFeatures.sensors.length; i++){
+        text += phone.mainFeatures.sensors.catagory;
+    }
+
+    phoneDetail.innerHTML = `
+    <p>Release Date: ${phone.releaseDate ? phone.releaseDate : 'No release data found'}</p>
+    <p>Storage: ${phone.mainFeatures ? phone.mainFeatures.storage : 'No storage information found'}</p>
+    <p>Bluetooth: ${phone.others ? phone.others.Bluetooth : 'No Bluetooth'}</p>
+    <p>Sensors: ${phone.mainFeatures ? phone.mainFeatures.sensors : 'No Bluetooth'}</p>
+    <p>Sensors: ${phone.mainFeatures.sensors ? phone.mainFeatures.sensors[0] : 'No Bluetooth'}</p>
+    `
+    /*
+    eita hosse turnaly operator..jodi relase date theke
+    tahole dekhabe r na thakle ekta massage dibe
+    */
+}
+loadPhones('apple');
